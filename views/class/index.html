@@ -3,7 +3,7 @@
 <head>
     <title> Class List </title>
     <meta charset="utf-8"/> 
-    <!-- <script src="/cdn/scripts/class/index.js"></script> -->
+    <script src="/cdn/scripts/class/index.js"></script>
 </head>
     <body>
         <h1> WitsBook </h1>
@@ -12,9 +12,22 @@
         <ol id="classList">
 
         </ol>
-        <label> Add a new student:  </label>
-        <input type="text" id="newStudentInput" placeholder="Name">
-        <button type="button" id="addStudentButton"> Add </button>
-        <div id="confirmation"> </div>  
+        <div>
+            <label> Add a new student:  </label>
+            <input type="text" id="newStudentInput" placeholder="Name">
+            <button type="button" id="addStudentButton"> Add </button>
+        </div>
+        <div id="editElement">
+            <label> Edit a student:  </label>
+            <input type="text" id="editStudentInput" placeholder="ID">
+            <label> Enter new name:  </label>
+            <input type="text" id="editStudentNameInput" placeholder="Name">
+            <button type="button" id="editStudentButton"> Edit </button> 
+        </div> 
+        <div>
+            <label> Delete a student:  </label>
+            <input type="text" id="deleteStudentInput" placeholder="ID">
+            <button type="button" id="deleteStudentButton"> Delete </button> 
+        </div>        
     </body>
 </html>

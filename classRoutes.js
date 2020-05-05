@@ -13,19 +13,27 @@ router.get('/api/get/:id', function (req, res) {
 router.post('/api/create', function (req, res) {
   console.log('creating the following student:', req.body.student)
   classList.push(req.body.student)
-  res.redirect(req.baseUrl + '/api/list')
+  res.status(201).json({ statusMessage: '201 Created' })
+  // res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('/api/delete', function (req, res) {
-  console.log('deleting student with ID : ', req.body.student)
-  classList.splice(req.body.student, 1)
-  res.redirect(req.baseUrl + '/api/list')
+  const id = req.body.studentID - 1
+  console.log('deleting student with ID : ', id, ' ', req.body.studentID)
+  classList.splice(id, 1)
+  res.status(201).json({ statusMessage: '201 Deleted' })
+  // res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('/api/edit', function (req, res) {
+  const id = req.body.studentID - 1
   console.log('editing a student entry : ', req.body.studentID)
-  classList[req.body.studentID] = req.body.student
-  res.redirect(req.baseUrl + '/api/list')
+  console.log('--', classList[id])
+  if (classList[id] !== undefined) {
+    classList[id] = req.body.student
+  }
+  res.status(201).json({ statusMessage: '201 Edited' })
+  // res.redirect(req.baseUrl + '/api/list')
 })
 
 router.get('/', function (req, res) {
