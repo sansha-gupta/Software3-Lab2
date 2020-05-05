@@ -105,18 +105,19 @@ fetch('/class/api/list') // Returns a Promise for the GET request
   })
   .then(function (data) { // Display the JSON data appropriately
     // Retrieve the classList outer element
-    const classList = document.getElementById('classList')
+    const studentList = document.getElementById('classList')
 
     // Iterate through all students
     data.forEach(function (student) {
-      const li = document.createElement('LI')
+      const li = document.createElement('li')
+      li.classList.add('ml-3')
       const liText = document.createTextNode(student)
       // Append the class to the list element
-      li.className += 'student'
+      // li.className += 'student'
 
       // Append list text to list item and list item to list
       li.appendChild(liText)
-      classList.appendChild(li)
+      studentList.appendChild(li)
     })
   })
   .catch(function (e) { // Process error for request
