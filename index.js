@@ -1,22 +1,19 @@
-const path = require('path')
 const express = require('express')
 const app = express()
-const mainRouter = require('./mainRoutes')
+const bodyParser = require('body-parser')
 
-// mainRouter.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
-// mainRouter.get('/about', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'views', 'about.html'))
-// })
-// app.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
-// app.get('/about', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'views', 'about.html'))
-// })
+// load routers
+const mainRouter = require('./mainRoutes.js')
+const classRouter = require('./classRoutes.js')
 
-app.use(mainRouter)
+// tell Express to use bodyParser for JSON and URL encoded form bodies
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// mounting routers
+app.use('/', mainRouter)
+app.use('/class', classRouter)
+// app.use('/cdn', express.static('public'))
 
 const port = process.env.PORT || 3000
 app.listen(port)
