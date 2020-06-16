@@ -16,6 +16,8 @@
     "mssql": "^6.2.0"
   },
   "devDependencies": {
+    "coveralls": "^3.1.0",
+    "cypress": "^4.8.0",
     "jest": "^26.0.1"
   }
 }
