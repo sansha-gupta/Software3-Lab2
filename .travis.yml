@@ -2,5 +2,8 @@ language: node_js
 node_js:
   - "v12.16.1"
 
+script: 
+  - npm run test:jest
+  - npm run coveralls
 deploy:
   provider: azure_web_apps
